@@ -9,7 +9,7 @@ A tool for testing and understanding the reliability of LLM Agents. This tool ev
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/agent-reliability-tool.git
+git clone https://github.com/hasura/agent-reliability-tool.git
 cd agent-reliability-tool
 
 # Set up configuration
@@ -40,7 +40,7 @@ poetry run agent-reliability examples/test_prompts.yaml
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/agent-reliability-tool.git
+   git clone https://github.com/hasura/agent-reliability-tool.git
    cd agent-reliability-tool
    ```
 
@@ -70,7 +70,7 @@ poetry run agent-reliability examples/test_prompts.yaml
    llm_provider: "anthropic"  # or "openai"
    
    # Choose the specific model
-   llm_model: "claude-3-opus-20240229"  # or appropriate OpenAI model
+   llm_model: "claude-3-sonnet-20240229"  # or appropriate OpenAI model
    ```
 
 ## Implementing Your Agent
@@ -194,6 +194,12 @@ In `config.yaml`:
 - `report_path`: Path to save the reliability report
 - `advanced.repeat_count`: Number of repetitions for repeatability testing
 - `advanced.max_tokens_per_call`: Maximum tokens per LLM call
+
+## Technical Notes
+
+- This tool uses direct HTTP API calls to OpenAI and Anthropic instead of their client libraries to avoid potential proxy-related issues.
+- The report generation is designed to handle large responses through summarization when necessary.
+- The tool is designed to be extensible - you can modify the evaluation prompts in the `reliability_tester.py` file to adjust the criteria.
 
 ## Example Files
 
