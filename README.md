@@ -208,6 +208,12 @@ The repository includes example files to help you get started:
 - `examples/test_prompts.yaml`: Example test prompts
 - `examples/agent_example.py`: Example agent implementation
 
+## Guides for Specific Agents
+
+The following guides provide specific instructions for testing different LLM agents:
+
+- [Using the Reliability Tool with PromptQL](docs/promptql-guide.md) - Guide for testing Hasura PromptQL implementations
+
 ## License
 
 [MIT License](LICENSE)
