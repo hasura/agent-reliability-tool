@@ -1,0 +1,20 @@
+prompts:
+  - id: "factual_query"
+    text: "What is the capital of France?"
+    description: "Basic factual query"
+  
+  - id: "data_analysis"
+    text: "I have sales data for Q1: Jan=$10,000, Feb=$12,500, Mar=$9,800. What's the trend and Q1 average?"
+    description: "Simple data analysis and calculation"
+  
+  - id: "reasoning"
+    text: "If a stock increases by 10% and then decreases by 10%, what is the net change? Show your work."
+    description: "Mathematical reasoning task"
+    
+  - id: "multi_step"
+    text: "I need to build a budget spreadsheet. What columns should I include and how should I structure it?"
+    description: "Multi-step planning task"
+    
+  - id: "opinion"
+    text: "What's the best way to invest $10,000 for a 5-year time horizon?"
+    description: "Opinion-based query"

@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "agent-reliability-tool"
+version = "0.1.0"
+description = "A tool for testing the reliability of LLM agents"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "agent_reliability"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyyaml = "^6.0"
+openai = "==1.12.0"  # Specify exact version
+anthropic = "==0.8.1"  # Specify exact version
+python-dotenv = "^1.0.0"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+
+[tool.poetry.scripts]
+agent-reliability = "agent_reliability.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

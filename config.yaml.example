@@ -1,0 +1,28 @@
+# Agent Reliability Testing Tool Configuration
+
+# LLM Provider for evaluation (choose one: "openai" or "anthropic")
+llm_provider: "anthropic"
+
+# LLM Model to use
+# For OpenAI: "gpt-4o" or "gpt-4-turbo" or "gpt-3.5-turbo"
+# For Anthropic: "claude-3-opus-20240229" or "claude-3.5-sonnet" or "claude-3-haiku-20240307"
+llm_model: "claude-3-opus-20240229"
+
+# Agent configuration (if needed by your agent implementation)
+agent_config:
+  # Add any configuration parameters your agent needs
+  # api_url: "https://your-agent-api.com/query"
+  # parameters:
+  #   temperature: 0.7
+  #   max_tokens: 1000
+
+# Report output path
+report_path: "./agent_reliability_report.md"
+
+# Advanced settings
+advanced:
+  # Number of repetitions for repeatability testing
+  repeat_count: 5
+  
+  # Maximum allowed tokens for a single LLM call
+  max_tokens_per_call: 12000
