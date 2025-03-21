@@ -139,6 +139,8 @@ Create a reliability report with these sections:
 
 For the overall reliability score, calculate it as: (Visibility Score + Repeatability Score) / 2
 
+IMPORTANT: Always clearly state the overall reliability score in this exact format: "Overall Reliability Score: X.X/10" (where X.X is the numerical score).
+
 The report should be formatted in Markdown and be detailed enough to help the tester understand their agent's strengths and weaknesses.
 """
     
@@ -331,8 +333,21 @@ The report should be formatted in Markdown and be detailed enough to help the te
             prompt_desc = result["prompt"].get("description", result["prompt"]["text"][:30] + "...")
             
             # Extract score from report
-            score_match = re.search(r"overall score.*?(\d+(?:\.\d+)?)", result["report"], re.IGNORECASE)
-            score = score_match.group(1) if score_match else "N/A"
+            score_patterns = [
+                r"overall score.*?(\d+(?:\.\d+)?)/10",
+                r"overall score.*?(\d+(?:\.\d+)?)",
+                r"reliability score.*?(\d+(?:\.\d+)?)/10",
+                r"reliability score.*?(\d+(?:\.\d+)?)",
+                r"score of (\d+(?:\.\d+)?)/10",
+                r"score of (\d+(?:\.\d+)?)"
+            ]
+
+            score = "N/A"
+            for pattern in score_patterns:
+                score_match = re.search(pattern, result["report"], re.IGNORECASE)
+                if score_match:
+                    score = score_match.group(1)
+                    break
             
             report += f"| {prompt_id} | {prompt_desc} | {score} |\n"
         
